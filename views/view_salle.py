@@ -115,3 +115,8 @@ class ViewSalle(ctk.CTk):
         self.geometry("750x550")
         self.cadreList = ctk.CTkFrame(self, corner_radius=10, width=400)
         self.cadreList.pack(pady=10, padx=10)
+        self.treeList = ttk.Treeview(
+            self.cadreList,
+            columns=("code", "libelle", "type", "capacite"),
+            show="headings"
+        )
