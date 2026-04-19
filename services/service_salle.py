@@ -35,3 +35,6 @@ class ServiceSalle:
         return True, "Salle modifiée avec succès."
     def supprimer_salle(self, code):
         self.dao_salle.delete_salle(code)
+
+    def rechercher_salle(self, code):
+        return self.dao_salle.get_salle(code)
