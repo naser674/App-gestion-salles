@@ -165,3 +165,8 @@ if salle_trouvee:
 # Supprimer une salle
 succes, message = service.supprimer_salle("B101")
 print(message)
+
+from views.view_salle import ViewSalle
+
+app = ViewSalle()
+app.mainloop()
