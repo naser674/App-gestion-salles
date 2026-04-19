@@ -1,22 +1,15 @@
-class Salle:
-    def __init__(self, code="", libelle="", type="", capacite=0):
-        self.code = code
-        self.libelle = libelle
-        self.type = type
-        self.capacite = capacite
+from Data.dao_salle import DataSalle
+from models.salle import Salle
 
-    def afficher_infos(self):
-        print(f"Code : {self.code}")
-        print(f"Libellé : {self.libelle}")
-        print(f"Type : {self.type}")
-        print(f"Capacité : {self.capacite}")
-        salle1 = Salle("A101", "Salle Info", "Laboratoire", 30)
+dao = DataSalle()
 
-    from Data.dao_salle import DataSalle
+# Tester la connexion à la base de données
+connexion = dao.get_connection()
+if connexion.is_connected():
+    print("Connexion réussie")
+connexion.close()
 
-    dao = DataSalle()
-
-    connexion = dao.get_connection()
-    if connexion.is_connected():
-        print("Connexion réussie")
-    connexion.close()
+# Ajouter une salle
+salle1 = Salle("A102", "Salle Info", "Laboratoire", 30)
+dao.insert_salle(salle1)
+print("Salle ajoutée")
