@@ -43,3 +43,19 @@ class ViewSalle(ctk.CTk):
         self.btn_supprimer.grid(row=0, column=2, padx=10, pady=10)
         self.btn_rechercher = ctk.CTkButton(self.cadreAction, text="Rechercher")
         self.btn_rechercher.grid(row=0, column=3, padx=10, pady=10)
+
+    def ajouter_salle(self):
+        salle = Salle(
+            self.entry_code.get(),
+            self.entry_libelle.get(),
+            self.entry_type.get(),
+            self.entry_capacite.get()
+        )
+
+        succes, message = self.service_salle.ajouter_salle(salle)
+
+        if succes:
+            messagebox.showinfo("Succès", message)
+        else:
+            messagebox.showerror("Erreur", message)
+
