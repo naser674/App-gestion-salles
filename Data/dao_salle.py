@@ -1,5 +1,9 @@
 import json
 import mysql.connector
+
+from models.salle import Salle
+
+
 class DataSalle:
     def get_connection(self):
         with open("Data/config.json", "r", encoding="utf-8") as fichier:
@@ -44,3 +48,16 @@ class DataSalle:
         if resultat:
             return Salle(resultat[0], resultat[1], resultat[2], resultat[3])
         return None
+    def get_salles(self):
+        connexion = self.get_connection()
+        cursor = connexion.cursor()
+        requete = "SELECT code, libelle, type, capacite FROM salle"
+        cursor.execute(requete)
+        resultat = cursor.fetchall()
+        cursor.close()
+        connexion.close()
+        liste_salles = []
+        for row in resultats:
+            liste_salles.append(Salle(row[0], row[1], row[2], row[3]))
+
+        return liste_salles
