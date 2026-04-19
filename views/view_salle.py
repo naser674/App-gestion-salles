@@ -107,4 +107,11 @@ class ViewSalle(ctk.CTk):
 
         self.btn_rechercher = ctk.CTkButton(self.cadreAction, text="Rechercher", command=self.rechercher_salle)
 
-    from tkinter import ttk
+from tkinter import ttk
+class ViewSalle(ctk.CTk):
+    def __init__(self):
+        super().__init__()
+        self.title("Gestion des salles")
+        self.geometry("750x550")
+        self.cadreList = ctk.CTkFrame(self, corner_radius=10, width=400)
+        self.cadreList.pack(pady=10, padx=10)
