@@ -133,3 +133,35 @@ liste_salles = dao.get_salles()
 for salle in liste_salles:
     print("------------")
     salle.afficher_infos()
+from services.service_salle import ServiceSalle
+from models.salle import Salle
+
+service = ServiceSalle()
+
+# Afficher la liste des salles
+print("Liste des salles :")
+liste = service.recuperer_salles()
+for salle in liste:
+    print("------------")
+    salle.afficher_infos()
+
+# Ajouter une salle
+salle1 = Salle("B101", "Salle Réseau", "Laboratoire", 20)
+succes, message = service.ajouter_salle(salle1)
+print(message)
+
+# Modifier une salle
+salle1.libelle = "Salle Réseau Cisco"
+salle1.capacite = 25
+succes, message = service.modifier_salle(salle1)
+print(message)
+
+# Rechercher une salle
+salle_trouvee = service.rechercher_salle("B101")
+if salle_trouvee:
+    print("Salle trouvée :")
+    salle_trouvee.afficher_infos()
+
+# Supprimer une salle
+succes, message = service.supprimer_salle("B101")
+print(message)
