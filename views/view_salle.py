@@ -124,3 +124,7 @@ class ViewSalle(ctk.CTk):
         self.treeList.heading("libelle", text="LIBELLÉ")
         self.treeList.heading("type", text="TYPE")
         self.treeList.heading("capacite", text="CAPACITÉ")
+        self.treeList.column("code", width=50)
+        self.treeList.column("libelle", width=150)
+        self.treeList.column("type", width=100)
+        self.treeList.column("capacite", width=100)
