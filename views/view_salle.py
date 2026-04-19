@@ -107,3 +107,4 @@ class ViewSalle(ctk.CTk):
 
         self.btn_rechercher = ctk.CTkButton(self.cadreAction, text="Rechercher", command=self.rechercher_salle)
 
+    from tkinter import ttk
