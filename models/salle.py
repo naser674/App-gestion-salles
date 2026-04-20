@@ -7,3 +7,4 @@ class Salle:
 
     def afficher_infos(self):
         return f"Code: {self.code} | Libellé: {self.libelle} | Type: {self.type} | Capacité: {self.capacite}"
+

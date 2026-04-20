@@ -147,4 +147,8 @@ class ViewSalle(ctk.CTk):
         salles = self.service_salle.recuperer_salles()
 
         for s in salles:
+<<<<<<< HEAD
             self.table.insert("", "end", values=(s.code, s.libelle, s.type, s.capacite))
+=======
+            self.table.insert("", "end", values=(s.code, s.libelle, s.type, s.capacite))
+>>>>>>> c5b04b10a85a47a8faefa978589beb42ece1d49e

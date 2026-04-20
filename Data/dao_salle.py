@@ -73,4 +73,4 @@ class DataSalle:
         salles = []
         for row in rows:
             salles.append(Salle(row[0], row[1], row[2], row[3]))
-        return salles
+
